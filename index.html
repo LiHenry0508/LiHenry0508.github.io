@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Henry Li</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body >
+    <div class="splash" id="splash">
+      <div class="splash-intro">
+        <h1 class="splash-text">Henry Li</h1>
+      </div>
+        <img src="images/splash.svg" class="splash-img">
+        <img src="images/cat_run.gif" class="cat_run">
+        <div class="enter-container">
+          <button class="enter-button" id="enter-button">Enter</button>
+        </div>
+      </div>
+
+    <div class="center-grid">
+      <div class="grid-container">
+        <div class="stripes-container">
+          <div class="stripes"></div>
+        </div>
+        <div class="grid-item1"> 
+          <div class="buttons">
+            <button class="prev" id = "prevButton"></button>
+            <button class="next" id = "nextButton"></button>
+          </div>
+          <div class="console-black">
+            <div class="headshot-container">
+              <img class="headshot-img" id="headshot-img">
+            </div>
+          </div>
+          <div class="console"></div>
+        </div>
+        
+
+        <div class="grid-item2"> 
+          <div class="portfolio">
+            <div class="pf-info">
+              <div class="portfolio-text">
+                <a class="portfolio-link" href="https://drive.google.com/drive/folders/1E99wjotqV-daIzOqHNGtifbiDJt_Gd7O?usp=sharing" target="_blank">
+                  Portfolio
+                </a>
+              </div>
+              <div class="pf-button-div">
+                <button class="pf-button" id="pf-back">&#8592;</button>
+                <button class="pf-button" id="pf-next">&#8594;</button>
+              </div>
+            </div>
+            <div class="portfolio-bg">
+              <img class="pf-images" id="pf-bg">
+            </div>
+          </div>
+
+          <div class="grid-div-2" id="garage">
+            <button class="garage-button">
+              <img src="images/lock.svg" class="lock-img">
+            </button>
+          </div>
+
+        </div>
+
+        <div class="grid-item3"> 
+          <div class="flex-div1">
+            <button class="flex-button1" id="flex-button1">CONTACT ME!</button>
+            <div id="overlay" class="hidden"></div>
+            <div class="slideDown" id="slideDown">
+              <div class="hidden" id="email">
+                <a href="mailto:li.henry0508@gmail.com" class="email-message">li.henry0508@gmail.com</a>
+              </div>
+              <div class="hidden" id="message-container">
+                <p class="message">
+                  Leave a message!
+                </p>
+              </div>
+
+              <button class="hidden" id="exitContact"></button>
+            </div>
+          </div>
+          <div class="flex-div2">
+            <div class="flex-button-div2">
+                <button class="flex-button2" id="ig-link">
+                  <img src="images/ig.svg" class="fit-logo-image">
+                </button>
+            </div>
+            <div class="flex-button-div2">
+              <button class="flex-button2" id="ln-link">
+                <img src="images/ln.svg" class="fit-logo-image">
+              </button>
+            </div>
+            <div class="flex-button-div2">
+              <button class="flex-button2" id="resume-link">
+                <img src="images/resume.svg" class="fit-logo-image">
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="grid-item4" id="grid-item4"> 
+          <div class="slider-container">
+            <div class="doors">
+              <div class="upperdoor" id="upperdoor"></div>
+              <div class="lowerdoor" id="lowerdoor"></div>
+            </div>
+            <input type="range" id="slider" min="0" max="100" value="0">
+            <span id="sliderValue"></span>
+            <div>
+              <p id="about"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-item5"> 
+          <a href="#projects">
+            <button class="projects-link" id="projects-link">
+              Projects
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="styles.js"></script>
+  </body>
+</html>

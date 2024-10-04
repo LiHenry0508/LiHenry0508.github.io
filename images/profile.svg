@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="156.599 93.701 549.348 696.299" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <defs/>
+  <g id="Layer-1">
+    <path d="M 163.267 154.552 C 162.977 101.08 166.836 102.017 215.859 101.959 L 646.913 101.959 C 696.955 102.066 696.794 104.225 699.505 154.552 L 699.505 729.778 C 699.652 781.463 699.451 781.584 646.913 782.37 L 206.337 781.718 C 165.018 784.057 163.486 782.12 163.486 753.074 L 163.267 154.552 Z" fill="#ddbea9" fill-rule="nonzero" opacity="1" stroke="#ddbea9" stroke-linecap="butt" stroke-linejoin="round" stroke-width="14.9168"/>
+    <path d="M177.746 150.385C177.746 132.466 192.273 117.939 210.192 117.939L652.58 117.939C670.499 117.939 685.026 132.466 685.026 150.385L685.026 570.358C685.026 588.278 670.499 602.804 652.58 602.804L210.192 602.804C192.273 602.804 177.746 588.278 177.746 570.358L177.746 150.385Z" fill="#1b2122" fill-rule="nonzero" opacity="1" stroke="#0c0d0d" stroke-linecap="butt" stroke-linejoin="round" stroke-width="14.9168"/>
+  </g>
+</svg>
