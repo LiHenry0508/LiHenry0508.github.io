@@ -21,31 +21,28 @@
   }
  
   .splash {
-    position: absolute;
+    position: fixed;
     z-index: 3;
     width: 100vw;
-    height: 130vh;
+    height: 100vh;
     background-color: #eae7b5;
     transition: opacity 1s, visibility 1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .disappear {
     animation: disappear 2s;
   }
-  .splash-intro {
-    position: absolute;
-    bottom: 70%;
-    left: 50%;
-    transform: translate(-60%, 10%);
+  .center-splash {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .splash-text {
-    font-size: 4em;
+    font-size: 3.8em;
     color: #837a57;
-  }
-  .enter-container {
-    position: absolute;
-    z-index: 3;
-    bottom: 26%;
-    left: 47%;
   }
   .enter-button {
     padding: 30%;
@@ -62,19 +59,15 @@
     transform: translate(0.2em, 0.1em);
   }
   .cat_run {
-    position: absolute;
     width: 18%;
+    /*
     bottom: 45%;
     left: 50%;
     transform: translate(-60%, 10%);
+    */
   }
-  .splash-img {
-    position: absolute;
-    width: 40%;
-    left: 50%;
-    bottom: 45%;
-    transform: translate(-50%, 50%);
-  }
+
+
   .center-grid {
     display: flex;
     justify-content: center;
