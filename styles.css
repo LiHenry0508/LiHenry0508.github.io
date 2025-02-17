@@ -16,7 +16,6 @@
   }
 
   body {
-    background-image: radial-gradient(#292d2a 3px, transparent 0);
     background-size: 20px 20px;
   }
  
@@ -64,35 +63,54 @@
 
 
   .myinfocontainer {
-    position: relative;
     z-index: 2;
     width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: center;
-    visibility: hidden;
+    height: 0vh;
     transition: all 0.5s;
+    background: hsl(0 0% 6%);
+    display: flex;
+    justify-content: center;
   }
   .myinfo{
-    width: 100vw;
-    height: 0vh;
-    background-color: rgb(8, 8, 8);
-    border: #1d1d1b 0px solid;
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(from 180deg at 50% 70%,hsla(0,0%,98%,1) 0deg,#eec32d 72.0000010728836deg,#ec4b4b 144.0000021457672deg,#709ab9 216.00000858306885deg,#4dffbf 288.0000042915344deg,hsla(0,0%,98%,1) 1turn);
+    --size: 20px;
+    mask:
+    radial-gradient(circle at 50% 50%, white 2px, transparent 2.5px) 50% 50% / var(--size) var(--size),
+    url("https://assets.codepen.io/605876/noise-mask.png") 256px 50% / 256px 256px;
+    mask-composite: intersect;
+    animation: flicker 10s infinite linear;
     display: flex;
     flex-direction: column;
-    gap: 1em;
     justify-content: center;
     align-items: center;
-    border-radius: 1%;
   }
+  @keyframes flicker {
+    to {
+      -webkit-mask-position: 50% 50%, 0 50%;
+              mask-position: 50% 50%, 0 50%;
+    }
+  }
+
   #myinfop1 {
-    font-size: 2em;
+    font-size: 3em;
     text-align: center;
+    position: absolute;
+    top: 45%;
+    color: white;
+    text-shadow: 0 0 5px #fff,
+    0 0 20px rgb(223, 223, 223),
+    0 0 30px rgb(108, 108, 108),
+    0 0 35px rgb(85, 85, 85),
+    0 0 40px rgb(64, 65, 64);
   }
   #myinfop2 {
     font-size: 1em;
     text-align: center;
+    position: absolute;
+    top: 55%;
+    color: rgb(230, 230, 230);
   }
   .opendoor {
     animation: opendoor 0.5s ease-out;
@@ -123,6 +141,7 @@
     cursor: pointer;
   }
   .center-grid {
+    background-image: radial-gradient(#292d2a 3px, transparent 0);
     display: flex;
     justify-content: center;
     padding: 4%;

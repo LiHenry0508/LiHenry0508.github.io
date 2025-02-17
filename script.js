@@ -23,20 +23,18 @@ enterButton.addEventListener('click', () => {
 let bool = true;
 light.addEventListener('click', () => {
   if (bool) {
-    myinfo.classList.add("opendoor");
-    myinfo.classList.remove("closedoor");
     myinfop1.classList.remove("hidden");
     myinfop2.classList.remove("hidden");
+    myinfoContainer.style.height = 100 + "vh";
     myinfoContainer.style.visibility = "visible";
     light.style.top = -1 + "px";
     bool = false;
   }
   else if (bool == false) {
-    myinfo.classList.remove("opendoor");
-    myinfo.classList.add("closedoor");
     myinfop1.classList.add("hidden");
     myinfop2.classList.add("hidden");
     myinfoContainer.style.visibility = "hidden";
+    myinfoContainer.style.height = 0 + "vh";
     bool = true;
   }
   console.log(bool);
