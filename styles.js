@@ -5,13 +5,52 @@ let overlay = document.getElementById('overlay');
 let exitContact = document.getElementById('exitContact');
 let email = document.getElementById('email');
 let message = document.getElementById('message-container');
+let light = document.getElementById('bulb-button');
+let bulbimg = document.getElementById('bulb-img');
+let myinfo = document.getElementById('myinfo');
+let myinfoContainer = document.getElementById('myinfocontainer');
+let myinfop1 = document.getElementById('myinfop1');
+let myinfop2 = document.getElementById('myinfop2');
 
+// splash screen
 enterButton.addEventListener('click', () => {
   let splash = document.getElementById('splash');
   splash.style.opacity = 0;
   splash.style.visibility = 'hidden';
 });
 
+// lightbulb animations
+let bool = true;
+light.addEventListener('click', () => {
+  if (bool) {
+    myinfo.classList.add("opendoor");
+    myinfo.classList.remove("closedoor");
+    myinfop1.classList.remove("hidden");
+    myinfop2.classList.remove("hidden");
+    myinfoContainer.style.visibility = "visible";
+    light.style.top = -1 + "px";
+    bool = false;
+  }
+  else if (bool == false) {
+    myinfo.classList.remove("opendoor");
+    myinfo.classList.add("closedoor");
+    myinfop1.classList.add("hidden");
+    myinfop2.classList.add("hidden");
+    myinfoContainer.style.visibility = "hidden";
+    bool = true;
+  }
+  console.log(bool);
+})
+light.addEventListener('mouseover', () => {
+  bulbimg.src = 'images/litbulb.svg';
+  console.log('hi')
+})
+light.addEventListener('mouseout', () => {
+  bulbimg.src = 'images/bulb.svg';
+  console.log('hi')
+})
+
+// button control for profile image
 let pfBack = document.getElementById('pf-back');
 let pfNext = document.getElementById('pf-next');
 let pfImages = ['images/portfolio/1.png', 'images/portfolio/2.png'];
@@ -45,7 +84,7 @@ function updatePfImage() {
   pfImg.style.opacity = 1;
 }
 
-
+// contact button animations
 contactButton.addEventListener('click', () => {
   if (section.classList.contains('show')) {
     section.classList.remove('show');
@@ -77,6 +116,7 @@ document.getElementById("resume-link").onclick = function () {
   window.open("https://drive.google.com/file/d/1OufqySRW5S9-c7IePEcAPocFKdo6gvZ8/view?usp=sharing", "_blank");
 };
 
+// garage door opening
 let garage = document.getElementById("garage");
 garage.onclick = function () {
   garage.classList.add("garage-animation");
@@ -84,47 +124,29 @@ garage.onclick = function () {
 };
 
 
-
+// slider animation
 document.getElementById("slider").addEventListener('input', function() {
   const slider = document.getElementById('slider');
-  var about = document.getElementById('about');
-  var upperdoor = document.getElementById('upperdoor')
-  var lowerdoor = document.getElementById('lowerdoor')
-  var bg = document.getElementById('grid-item4')
-
+  let artContainer = document.getElementById('art-container');
+  let artChildren = artContainer.querySelectorAll('*');
   const sliderValue = slider.value;
-
+  let exitButton = document.getElementById('exitGallery');
   if (sliderValue == 100) {
-    slider.style.display = "none";
-    upperdoor.style.display = "block";
-    upperdoor.classList.add("upperanimate");
-    lowerdoor.classList.add("loweranimate");
-    bg.style.backgroundColor = "#e9d2c1";
-    let index = 0;
-    let text = document.getElementById("about");
-    let textArray = ["Hi, my name is Henry Li", "I'm a student, software engineer, and aspiring game developer", "Hope you're enjoying my page so far"];
-
-    function changeText() {
-      text.style.opacity = 0;
-      setTimeout(() => {
-        if (index >= textArray.length) {
-          index = 0;
-        }
-        else {
-          index++;
-        }
-        text.textContent = textArray[index];
-        text.style.opacity = 1;
-
-      }, 1000)
-    }
-    text.textContent = textArray[index];
-    text.style.opacity = 1;
-    setInterval(changeText, 3000);
+    console.log('hi');
+    artContainer.style.visibility = "visible";
+    artContainer.style.opacity = 1;
+    artChildren.forEach(child => {
+      child.classList.remove("hidden");
+    })
+    slider.value = 0;
   }
+
+  exitButton.addEventListener("click", () => {
+    artContainer.style.opacity = 0;
+    artContainer.style.visibility = "hidden";
+
+  })
 })
-
-
 let prevButton = document.getElementById("prevButton");
 let nextButton = document.getElementById("nextButton");
 let img = document.getElementById('headshot-img');
@@ -159,7 +181,58 @@ function updateImage() {
   img.style.opacity = 1;
 }
 
-let projectsSection = document.getElementById('projects-section');
-document.getElementById("projects-link").addEventListener('onclick', function() {
-  projectsSection.classList.add("projects");
-})
+//wheel animation 
+const wheelLine = document.getElementById('line');
+const crankRight = document.getElementById('crankright');
+const crankLeft = document.getElementById('crankleft');
+let projectContainer = document.getElementById('projects-container');
+let rotation = 0;
+let rotatingLeft = false;
+let rotatingRight = false;
+let maxRight = screen.width / 5;
+let projectContainerLeft = projectContainer.style.left;
+let projectContainerRight = projectContainer.style.right;
+let slideValue = -60;
+
+function rotate() {
+  if (rotatingRight) {
+    rotation += 5;
+    console.log(slideValue);
+    if (slideValue < 1) {
+      projectContainer.style.left = slideValue + "vw";
+      slideValue += 1;
+    }
+  }
+  if (rotatingLeft) {
+    rotation -= 5; 
+    if (slideValue > -61) {
+      projectContainer.style.left = slideValue + "vw";
+      slideValue -= 1;
+    }
+  }
+  wheelLine.style.transform = `rotate(${rotation}deg)`;
+  if (rotatingRight|| rotatingLeft)
+    requestAnimationFrame(rotate);
+}
+function startLeftRotation(event) {
+    rotatingLeft = true;
+    rotatingRight = false;
+    requestAnimationFrame(rotate); 
+  }
+function startRightRotation(event) {
+  rotatingRight = true;
+  rotatingLeft = false;
+  requestAnimationFrame(rotate); 
+}
+
+function stopRotation() {
+  rotatingLeft = false;
+  rotatingRight = false;
+}
+
+crankLeft.addEventListener("mousedown", startLeftRotation);
+crankLeft.addEventListener("mouseup", stopRotation);
+crankRight.addEventListener("mousedown", startRightRotation);
+crankRight.addEventListener("mouseup", stopRotation);
+
+

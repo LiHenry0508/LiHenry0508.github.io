@@ -18,6 +18,16 @@
       </div>
     </div>
 
+    <div class="myinfocontainer" id="myinfocontainer">
+      <div class="myinfo" id="myinfo">
+        <p id="myinfop1" class="hidden">Hey, thanks for stopping by! I'm Henry Li.</p>
+        <p id="myinfop2" class="hidden">I'm a computer scientist, animator, designer, and artist</p>
+      </div>
+    </div>
+    <button class="bulb-button" id="bulb-button">
+      <img src="images/bulb.svg" class="bulb-img" id="bulb-img">
+    </button>
+
     <div class="center-grid">
       <div class="grid-container">
         <div class="stripes-container">
@@ -40,11 +50,11 @@
         <div class="grid-item2"> 
           <div class="portfolio">
             <div class="pf-info">
-              <div class="portfolio-text">
-                <a class="portfolio-link" href="https://drive.google.com/drive/folders/1E99wjotqV-daIzOqHNGtifbiDJt_Gd7O?usp=sharing" target="_blank">
-                  Portfolio
-                </a>
-              </div>
+                  <a class="portfolio-text" href="https://drive.google.com/drive/folders/1E99wjotqV-daIzOqHNGtifbiDJt_Gd7O?usp=sharing" target="_blank">
+                    <button class="portfolio-link">
+                      Portfolio
+                    </button>
+                  </a>
               <div class="pf-button-div">
                 <button class="pf-button" id="pf-back">&#8592;</button>
                 <button class="pf-button" id="pf-next">&#8594;</button>
@@ -98,27 +108,34 @@
             </div>
           </div>
         </div>
-        <div class="grid-item4" id="grid-item4"> 
+        <div class="grid-item4" id="grid-item4">
           <div class="slider-container">
-            <div class="doors">
-              <div class="upperdoor" id="upperdoor"></div>
-              <div class="lowerdoor" id="lowerdoor"></div>
-            </div>
             <input type="range" id="slider" min="0" max="100" value="0">
             <span id="sliderValue"></span>
-            <div>
-              <p id="about"></p>
-            </div>
           </div>
         </div>
 
         <div class="grid-item5"> 
-          <a href="#projects">
-            <button class="projects-link" id="projects-link">
-              Projects
-            </button>
-          </a>
+          <button class="crank-button" id="crankleft">&#10226</button>
+            <div class="wheel">
+              <div class="line" id="line">
+                <div class="circle" id="circle"></div>
+              </div>
+            </div>
+          <button class="crank-button" id="crankright">&#10227</button>
         </div>
+      </div>
+
+      <div class="projects-container" id="projects-container">
+
+      </div>
+      <div class="art-container" id="art-container">
+        <button class="exitGallery" id="exitGallery">&#x2715;</button>
+        <p>Art Gallery</p>
+        <img class="gallery-img">
+        <img>
+        <img>
+        <img>
       </div>
     </div>
 

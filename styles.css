@@ -63,23 +63,82 @@
   }
 
 
+  .myinfocontainer {
+    position: relative;
+    z-index: 2;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    visibility: hidden;
+    transition: all 0.5s;
+  }
+  .myinfo{
+    width: 100vw;
+    height: 0vh;
+    background-color: rgb(8, 8, 8);
+    border: #1d1d1b 0px solid;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1%;
+  }
+  #myinfop1 {
+    font-size: 2em;
+    text-align: center;
+  }
+  #myinfop2 {
+    font-size: 1em;
+    text-align: center;
+  }
+  .opendoor {
+    animation: opendoor 0.5s ease-out;
+    animation-fill-mode: forwards;
+  }
+  .closedoor {
+    animation: closedoor 0.4s ease-in;
+  }
+  @keyframes opendoor {
+    0% {height: 0vh;}
+    100% {height: 100vh;}
+  }
+  @keyframes closedoor {
+    0% {height: 100vh;}
+    100% {height: 0vh;}
+  }
+  .bulb-button {
+    position: absolute;
+    width: 55px;
+    left: 50vw;
+    transform: translateX(-50%);
+    z-index: 2;
+    background: none;
+    border: none;
+    transition: all 0.5s;
+  }
+  .bulb-button:hover {
+    cursor: pointer;
+  }
   .center-grid {
     display: flex;
     justify-content: center;
     padding: 4%;
-    background: #3f4440;
-    background-image: radial-gradient(#292d2a 3px, transparent 0);
+    background: #2c302d;
+    background-image: radial-gradient(#141614 3px, transparent 0);
     background-size: 20px 20px;
   }
   .grid-container {
-    background-color: #393936;
-    border: 4px solid rgb(80, 75, 75);
+    background-color: #2b2f2a;
+    border: 4px solid rgb(60, 64, 58);
     padding: 5%;
     border-radius: 4%;
     width: 1025px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    gap: 2%;
     z-index: 1;
   }
 
@@ -151,22 +210,23 @@
     background-color: #DDBEA9;
     border-radius: 10px;
     border: 1px solid transparent;
-    transition: border 0.5s;
+    transition: border 0.2s;
   }
   .console:hover {
-    border: 1px solid #eae6e6;
+    border: 1.5px solid #f6f1f1;
   }
   .buttons {
     z-index: 2;
     position: absolute;
     display: flex;
-    top: 78%;
-    width: 70%;
-    height: 15%;
-    gap: 45%;
+    top: 77%;
+    width: 225px;
+    height: 80px;
+    gap: 60px;
   }
   .prev {
     width: 100%;
+    height: 100%;
     z-index: 2;
     border: none;
     background-color: #996d4f;
@@ -181,6 +241,7 @@
   }
   .next {
     width: 100%;
+    height: 100%;
     z-index: 2;
     border: none;
     background-color: #88947c;
@@ -257,10 +318,9 @@
   }
   .portfolio-bg {
     position: absolute;
+    background-color: rgb(26, 26, 26);
     width: 90%;
     height: 77%;
-    background: url(images/noise.jpeg);
-    background-size: 30%;
     left: 5%;
     top: 19%;
     border-radius: 13px;
@@ -273,13 +333,15 @@
     to {background-position: 100% -100%;}
   }
   .pf-images {
-    height: auto;
     object-fit: contain;
     border: 1px solid rgb(152, 192, 135);
     transition: opacity 0.2s;
   }
   .portfolio-link {
+    border: none;
+    background-color: #2f3a32;
     text-decoration: none;
+    font-size: 1em;
   }
   .portfolio-text {
     display: flex;
@@ -292,6 +354,7 @@
     border-radius: 13px;
     border: 1px solid transparent;
     transition: border 0.4s;
+    text-decoration: none;
   }
   .portfolio-text:hover {
     border: 1px solid white;
@@ -559,9 +622,9 @@
   input[type="range"] {
     width: 80%;
     -webkit-appearance: none;
-    background: #B7B7A4;
-    height: 20px;
-    border-radius: 10px;
+    background: #dac9a7;
+    height: 3em;
+    border-radius: 15px;
     outline: none;
     opacity: 0.7;
     transition: opacity .2s;
@@ -569,21 +632,26 @@
   input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 20px;
-    height: 20px;
-    background: #6B705C;
-    box-shadow: 0 0.2em 0 #4b4f3e;
-    transform: translateY(-0.1em);
+    width: 4em;
+    height: 3em;
+    border-radius: 15px;
+    background: #a7aa7f;
+    box-shadow: 0em 0.3em 0 #4b4f3e;
+    transform: translate(0em, -0.2em);
     cursor: pointer;
-    border-radius: 50%;
+    transition: all 0.2s;
+  }
+  input[type="range"]::-webkit-slider-thumb:hover {
+    box-shadow: none;
+    transform: translate(0em, 0em);
   }
   input[type="range"]::-moz-range-thumb {
     width: 25px;
     height: 25px;
     background: #6B705C;
     cursor: pointer;
-    border-radius: 50%;
   }
+
   .doors {
     position: absolute;
     top: 0;
@@ -628,6 +696,31 @@
     100% {height: 0%;}
   }
 
+  .art-container {
+    z-index: 2;
+    position: absolute;
+    width: 71vw;
+    height: 90vh;
+    background-color: #141614;
+    padding: 5%;
+    border-radius: 4%;
+    display: grid;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s;
+  }
+  .exitGallery {
+    position: absolute;
+    border-radius: 50%;
+    right: 15px;
+    top: 15px;
+    width: 50px;
+    height: 50px;
+    border: 1px white solid;
+  }
+  .gallery-img {
+    background-color: red;
+  }
   .grid-item5 {
     grid-row: span 2;
     width: 100%;
@@ -639,30 +732,67 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 10%;
   }
   .grid-item5:hover {
     border: 1px solid white;
   }
-  .text-disappear {
-    animation-name: disappear;
-    animation-duration: 0.5s;
-  }
-  .projects-link {
-    color: #1d1d1b;
-    font-size: 20px;
-    padding: 10px;
-    border: 1px solid transparent;
-    border-radius: 10px;
-  }
-  .projects {
+  .wheel {
+    position: relative;
     display: flex;
     justify-content: center;
-    width: 100vw;
-    height: 100vh;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color: wheat;
+    border-radius: 50%;
+  }
+  .line {
+    position: absolute;
+    left: 50%;
+    width: 50%;
+    height: 20%;
+    border-radius: 5px;
+    background-color: #141614;
+    transform-origin: left;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
+  .circle {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    left: 70%;
+    border-radius: 50%;
+    background-color: #d1ebd1;
+    cursor: grab;
+    }
+
+  .crank-button {
+    border-radius: 50%;
+    border: none;
+    width: 30px;
+    height: 30px;
+    font-size: 150%;
+    text-align: center;
+    background-color: rgb(253, 233, 215);
+    color: rgb(9, 12, 7);
+    box-shadow: 0 0.1em 0 rgb(151, 80, 29);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .crank-button:hover {
+    box-shadow: none;
+    transform: translateY(0.1em);
   }
   .projects-container {
-    width: 80%;
-    height: 100%;
-    border-radius: 4%;
+    position: absolute;
+    z-index: 2;
+    width: 60vw;
+    height: 114vh;
+    left: -60vw;
+    right: 0;
+    border-radius: 10px;
     background-color: #1d1d1b;
   }
