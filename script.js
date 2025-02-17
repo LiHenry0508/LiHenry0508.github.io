@@ -48,7 +48,7 @@ light.addEventListener('mouseout', () => {
   console.log('hi')
 })
 
-// button control for profile image
+// button control for portfolio
 let pfBack = document.getElementById('pf-back');
 let pfNext = document.getElementById('pf-next');
 let pfImages = ['images/portfolio/1.png', 'images/portfolio/2.png'];
@@ -134,15 +134,18 @@ document.getElementById("slider").addEventListener('input', function() {
     artContainer.style.visibility = "visible";
     artContainer.style.opacity = 1;
     artChildren.forEach(child => {
-      child.classList.remove("hidden");
+      child.style.visibility = "visible";
     })
     slider.value = 0;
+
   }
 
   exitButton.addEventListener("click", () => {
     artContainer.style.opacity = 0;
     artContainer.style.visibility = "hidden";
-
+    artChildren.forEach(child => {
+      child.style.visibility = "hidden";
+    })
   })
 })
 let prevButton = document.getElementById("prevButton");

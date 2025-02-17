@@ -16,6 +16,8 @@
   }
 
   body {
+    max-height: fit-content;
+    background: #2c302d;
     background-size: 20px 20px;
   }
  
@@ -719,14 +721,30 @@
     z-index: 2;
     position: absolute;
     width: 71vw;
-    height: 90vh;
+    height: auto;
     background-color: #141614;
     padding: 5%;
-    border-radius: 4%;
-    display: grid;
+    border-radius: 5px;
     visibility: hidden;
     opacity: 0;
-    transition: all 0.3s;
+    transition: all 0.5s;
+    text-align: center;
+    display: none;
+  }
+  .art-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .gallery-img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid white;
+    visibility: hidden;
   }
   .exitGallery {
     position: absolute;
