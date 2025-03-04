@@ -51,10 +51,9 @@ light.addEventListener('mouseout', () => {
 // button control for portfolio
 let pfBack = document.getElementById('pf-back');
 let pfNext = document.getElementById('pf-next');
-let pfImages = ['/drawings/1.png', '/drawings/2.png',
-'/drawings/3.png', '/drawings/4.png',
-'/drawings/5.png', '/drawings/6.png',
-'/drawings/7.png'];
+let pfImages = ['/drawings/1.png', '/drawings/2.png', '/drawings/3.png', 
+'/drawings/4.png', '/drawings/5.png', '/drawings/6.png', '/drawings/7.png',
+'/drawings/8.png', '/drawings/9.png', '/drawings/10.png'];
 let pfImg = document.getElementById('pf-bg');
 let pfIndex = 0;
 pfImg.src = pfImages[pfIndex];
@@ -66,7 +65,7 @@ pfBack.addEventListener('click', () => {
   else {
     pfIndex = pfImages.length - 1;
   }
-  setTimeout(updatePfImage, 200);
+  setTimeout(updatePfImage, 100);
 })
 
 pfNext.addEventListener('click', () => {
