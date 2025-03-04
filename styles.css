@@ -186,21 +186,8 @@
     height: 30px;
     width: 100%;
   }
-  .audio-div {
-    width: 100%;
-    height: 90%;
-    background-color: rgb(105, 128, 105);
-    border-radius: 30px;
-    border: 1px solid transparent;
-    transition: all 0.2s
-  }
-  .audio-div:hover {
-    cursor: pointer;
-    border: 1px solid rgb(229, 229, 229);
-    transform: translateY(-3px);
-  }
   .stripes-container{
-    grid-column: span 2;
+    grid-column: span 3;
   }
   .stripes {
     height: 30px;
