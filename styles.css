@@ -13,12 +13,14 @@
 
   html { 
     background-color: #3f4440;
+    overflow: auto;
   }
 
   body {
     max-height: fit-content;
     background: #2c302d;
     background-size: 20px 20px;
+    overflow: auto;
   }
  
   .splash {
@@ -138,7 +140,14 @@
     background: none;
     border: none;
     transition: all 0.5s;
+    animation: glow infinite 2s ease-in-out;
   }
+  @keyframes glow {
+    0% {filter: drop-shadow(0 0 0px rgb(255, 255, 127))}
+    50% {filter: drop-shadow(0 0 4px rgb(255, 255, 127))}
+    100% {filter: drop-shadow(0 0 0px rgb(255, 255, 127))}
+  }
+
   .bulb-button:hover {
     cursor: pointer;
   }
@@ -172,8 +181,26 @@
     color: rgb(220, 230, 216);
     text-align: center;
   }
+  .bg-music {
+    grid-column: span 1;
+    height: 30px;
+    width: 100%;
+  }
+  .audio-div {
+    width: 100%;
+    height: 90%;
+    background-color: rgb(105, 128, 105);
+    border-radius: 30px;
+    border: 1px solid transparent;
+    transition: all 0.2s
+  }
+  .audio-div:hover {
+    cursor: pointer;
+    border: 1px solid rgb(229, 229, 229);
+    transform: translateY(-3px);
+  }
   .stripes-container{
-    grid-column: span 3;
+    grid-column: span 2;
   }
   .stripes {
     height: 30px;
@@ -198,18 +225,28 @@
     grid-row: span 1;
     height: 100%;
     width: 100%;
+  }
+  .console {
+    width: 100%;
+    height: 440px;
+    background-color: #DDBEA9;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    transition: border 0.2s;
     display: flex;
     justify-content: center;
   }
+  .console:hover {
+    border: 1.5px solid #f6f1f1;
+  }
   .console-black {
-    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 94%;
     height: 70%;
     border-radius: 10px;
-    top: 2%;
+    margin-top: 10px;
     background-color: #1d1d1b;
   }
   .headshot-container {
@@ -224,17 +261,6 @@
     object-fit: cover;
     border-radius: 10px;
     transition: opacity 0.3s;
-  }
-  .console {
-    width: 100%;
-    height: 440px;
-    background-color: #DDBEA9;
-    border-radius: 10px;
-    border: 1px solid transparent;
-    transition: border 0.2s;
-  }
-  .console:hover {
-    border: 1.5px solid #f6f1f1;
   }
   .buttons {
     z-index: 2;
@@ -355,7 +381,6 @@
   }
   .pf-images {
     object-fit: contain;
-    border: 1px solid rgb(152, 192, 135);
     transition: opacity 0.2s;
   }
   .portfolio-link {
@@ -616,13 +641,20 @@
     border-radius: 10px;
     transition: border 0.5s;
     background-color: #FFE8D6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+  }
+  #project-text {
+    color: #4b4f3e;
   }
   .grid-item4:hover {
     border: 1px solid #fcfcf8;
   }
   .slider-container {
     display: flex;
-    height: 100%;
     justify-content: center;
     align-items: center;
   }
@@ -716,47 +748,101 @@
     80% {height: 7%;}
     100% {height: 0%;}
   }
-
-  .art-container {
-    z-index: 2;
-    position: absolute;
-    width: 71vw;
-    height: auto;
-    background-color: #141614;
-    padding: 5%;
-    border-radius: 5px;
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.5s;
-    text-align: center;
+  #footer-container{
+    grid-column: span 3;
   }
-  .art-grid {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 10px;
-    margin-top: 10px;
-  }
-  .gallery-img {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    border: 1px solid white;
-    visibility: hidden;
-  }
-  .exitGallery {
-    position: absolute;
+  .pacman {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    right: 15px;
-    top: 15px;
-    width: 50px;
-    height: 50px;
-    border: 1px white solid;
+    background: #f2d648;
+    position: relative;
   }
-  .gallery-img {
-    background-color: red;
+  .pacman-mouth {
+    background: #2c302d;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+    animation: eat 0.7s infinite linear;
   }
+  @keyframes eat {
+    0% {
+      clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+    }
+    25% {
+      clip-path: polygon(100% 60%, 44% 48%, 100% 40%);
+    }
+    50% {
+      clip-path: polygon(100% 50%, 44% 48%, 100% 50%);
+    }
+    75% {
+      clip-path: polygon(100% 59%, 44% 48%, 100% 35%);
+    }
+    100% {
+      clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+    }
+  }
+  .footer {
+    width: 100%;
+    height: 20px;
+    background-color: #353935;
+    border-radius: 10px;
+  }
+  .projects-container {
+    z-index: 2;
+    width: 100vw;
+    height: 0vh;
+    transition: all 0.1s;
+    background: hsl(120, 11%, 11%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #projects-grid {
+    width: 90%;
+    height: 90%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    margin: 20px;
+  }
+  .project {
+    border: 1px solid white;
+    width: 100%;
+    background-color: white;
+  }
+  .project:hover {
+    cursor: pointer;
+  }
+  .project p {
+    color: rgb(31, 31, 31);
+    padding: 1px;
+    font-size: 15px;
+  }
+  .project h1 {
+    color: rgb(27, 26, 26);
+    font-size: 20px;
+    padding: 1px;
+  }
+  #exitGallery {
+    position: relative;
+    background-color: transparent;
+    border: 1px solid white;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 10px;
+  }
+  #exitGallery:hover {
+    cursor: pointer;
+  }
+  .project-pics {
+    width: 100%;
+    height: 70%;
+  }
+
   .grid-item5 {
     grid-row: span 2;
     width: 100%;
@@ -821,14 +907,4 @@
   .crank-button:hover {
     box-shadow: none;
     transform: translateY(0.1em);
-  }
-  .projects-container {
-    position: absolute;
-    z-index: 2;
-    width: 60vw;
-    height: 114vh;
-    left: -60vw;
-    right: 0;
-    border-radius: 10px;
-    background-color: #1d1d1b;
   }

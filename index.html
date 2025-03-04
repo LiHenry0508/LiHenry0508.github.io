@@ -29,22 +29,28 @@
 
     <div class="center-grid">
       <div class="grid-container">
+        <div class="audio-div">
+          <audio controls class="bg-music">
+            <source src="/audio/jazz.mp3" type="audio/mp3">
+          </audio>
+        </div>
         <div class="stripes-container">
           <div class="stripes"></div>
         </div>
+
         <div class="grid-item1"> 
-          <div class="buttons">
-            <button class="prev" id = "prevButton"></button>
-            <button class="next" id = "nextButton"></button>
-          </div>
-          <div class="console-black">
-            <div class="headshot-container">
-              <img class="headshot-img" id="headshot-img">
+          <div class="console">
+            <div class="buttons">
+              <button class="prev" id = "prevButton"></button>
+              <button class="next" id = "nextButton"></button>
+            </div>
+            <div class="console-black">
+              <div class="headshot-container">
+                <img class="headshot-img" id="headshot-img">
+              </div>
             </div>
           </div>
-          <div class="console"></div>
         </div>
-        
 
         <div class="grid-item2"> 
           <div class="portfolio">
@@ -108,6 +114,9 @@
           </div>
         </div>
         <div class="grid-item4" id="grid-item4">
+          <h1 id="project-text">
+            PROJECTS
+          </h1>
           <div class="slider-container">
             <input type="range" id="slider" min="0" max="100" value="0">
             <span id="sliderValue"></span>
@@ -123,23 +132,38 @@
             </div>
           <button class="crank-button" id="crankright">&#10227</button>
         </div>
+        <div id="footer-container">
+          <div class="pacman" id="pacman">
+            <div class="pacman-mouth"></div>
+          </div>
+          <div class="footer"></div>
+        </div>
       </div>
+    </div>
 
-      <div class="projects-container" id="projects-container">
-
-      </div>
-      <div class="art-container" id="art-container">
-        <button class="exitGallery" id="exitGallery">&#x2715;</button>
-        <h1>Art Gallery</h1>
-        <p>Note: All drawings are my own, referenced from images on the internet. More to come!</p>
-        <div class="art-grid">
-          <img class="gallery-img" src="/drawings/1.png">
-          <img class="gallery-img" src="/drawings/5.png">
-          <img class="gallery-img" src="/drawings/4.png">
-          <img class="gallery-img" src="/drawings/3.png">
-          <img class="gallery-img" src="/drawings/2.png">
-          <img class="gallery-img" src="/drawings/6.png">
-          <img class="gallery-img" src="/drawings/7.png">
+    <div class="projects-container" id="projects-container">
+      <button id="exitGallery" class="hidden" id="exitGallery">&#x2715;</button>
+      <h1 class="hidden">PROJECTS</h1>
+      <div id="projects-grid" class="hidden">
+        <div class="project hidden">
+          <img class="project-pics" src="/images/projectpics/120eaststate.png">
+          <h1>120 East State Archive</h1>
+          <p>A web app hosting a database of historical archives of the city of Trenton</p>
+        </div>
+        <div class="project hidden">
+          <img class="project-pics" src="/images/projectpics/fraud.png">
+          <h1>Fraud Detection</h1>
+          <p>A machine learning model to detect fraudulent credit card transactions.</p>
+        </div>
+        <div class="project hidden">
+          <img class="project-pics" src="/images/projectpics/file&directory.png">
+          <h1>Directory File Trees</h1>
+          <p>A module for binary directory and file trees used for sorting files</p>
+        </div>
+        <div class="project hidden">
+          <img class="project-pics" src="/images/projectpics/symtable.png">
+          <h1>SymTable Module</h1>
+          <p>Recreated the classic symbol table module in C with both hash table and pointers</p>
         </div>
       </div>
     </div>

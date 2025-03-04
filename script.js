@@ -51,7 +51,10 @@ light.addEventListener('mouseout', () => {
 // button control for portfolio
 let pfBack = document.getElementById('pf-back');
 let pfNext = document.getElementById('pf-next');
-let pfImages = ['images/portfolio/1.png', 'images/portfolio/2.png'];
+let pfImages = ['/drawings/1.png', '/drawings/2.png',
+'/drawings/3.png', '/drawings/4.png',
+'/drawings/5.png', '/drawings/6.png',
+'/drawings/7.png'];
 let pfImg = document.getElementById('pf-bg');
 let pfIndex = 0;
 pfImg.src = pfImages[pfIndex];
@@ -125,27 +128,30 @@ garage.onclick = function () {
 // slider animation
 document.getElementById("slider").addEventListener('input', function() {
   const slider = document.getElementById('slider');
-  let artContainer = document.getElementById('art-container');
-  let artChildren = artContainer.querySelectorAll('*');
+  let projectContainer = document.getElementById('projects-container');
+  let projectChildren = projectContainer.querySelectorAll('*');
   const sliderValue = slider.value;
   let exitButton = document.getElementById('exitGallery');
   if (sliderValue == 100) {
-    console.log('hi');
-    artContainer.style.visibility = "visible";
-    artContainer.style.opacity = 1;
-    artChildren.forEach(child => {
-      child.style.visibility = "visible";
+    projectContainer.style.visibility = "visible";
+    projectContainer.style.opacity = 1;
+    projectContainer.style.height = 100 + "vh";
+    projectChildren.forEach(child => {
+      child.classList.remove("hidden");
     })
     slider.value = 0;
-
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth"
+    });
   }
 
   exitButton.addEventListener("click", () => {
-    artContainer.style.opacity = 0;
-    artContainer.style.visibility = "hidden";
-    artChildren.forEach(child => {
-      child.style.visibility = "hidden";
+    projectContainer.style.visibility = "hidden";
+    projectChildren.forEach(child => {
+      child.classList.add("hidden");
     })
+    projectContainer.style.height = 0 + "vh";
   })
 })
 let prevButton = document.getElementById("prevButton");
@@ -186,30 +192,29 @@ function updateImage() {
 const wheelLine = document.getElementById('line');
 const crankRight = document.getElementById('crankright');
 const crankLeft = document.getElementById('crankleft');
-let projectContainer = document.getElementById('projects-container');
+let pacmanContainer = document.getElementById('footer-container')
+let pacman = document.getElementById('pacman');
 let rotation = 0;
 let rotatingLeft = false;
 let rotatingRight = false;
-let maxRight = screen.width / 5;
-let projectContainerLeft = projectContainer.style.left;
-let projectContainerRight = projectContainer.style.right;
-let slideValue = -60;
+let slideValue = 0;
 
 function rotate() {
-  if (rotatingRight) {
+  let containerWidth = pacmanContainer.offsetWidth;
+  let pacmanWidth = pacman.offsetWidth;
+
+  let maxSlide = containerWidth - pacmanWidth;
+  console.log(maxSlide);
+  console.log(slideValue);
+  if (rotatingRight && slideValue < maxSlide) {
     rotation += 5;
-    console.log(slideValue);
-    if (slideValue < 1) {
-      projectContainer.style.left = slideValue + "vw";
-      slideValue += 1;
-    }
+    pacman.style.left = slideValue + "px";
+    slideValue += 7;
   }
-  if (rotatingLeft) {
+  if (rotatingLeft && slideValue > 0) {
     rotation -= 5; 
-    if (slideValue > -61) {
-      projectContainer.style.left = slideValue + "vw";
-      slideValue -= 1;
-    }
+    pacman.style.left = slideValue + "px";
+    slideValue -= 7;
   }
   wheelLine.style.transform = `rotate(${rotation}deg)`;
   if (rotatingRight|| rotatingLeft)
