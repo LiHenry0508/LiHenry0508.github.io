@@ -1,10 +1,4 @@
 let enterButton = document.getElementById('enter-button');
-let contactButton = document.getElementById('flex-button1');
-let section = document.getElementById('slideDown');
-let overlay = document.getElementById('overlay');
-let exitContact = document.getElementById('exitContact');
-let email = document.getElementById('email');
-let message = document.getElementById('message-container');
 let light = document.getElementById('bulb-button');
 let bulbimg = document.getElementById('bulb-img');
 let myinfo = document.getElementById('myinfo');
@@ -65,7 +59,7 @@ pfBack.addEventListener('click', () => {
   else {
     pfIndex = pfImages.length - 1;
   }
-  setTimeout(updatePfImage, 100);
+  setTimeout(updatePfImage, 200);
 })
 
 pfNext.addEventListener('click', () => {
@@ -80,32 +74,29 @@ pfNext.addEventListener('click', () => {
 })
 
 function updatePfImage() {
-  pfImg.src = pfImages[pfIndex];
   pfImg.style.opacity = 1;
+  pfImg.src = pfImages[pfIndex];
 }
 
 // contact button animations
+let contactButton = document.getElementById('flex-button1');
+let section = document.getElementById('slideDown');
+let overlay = document.getElementById('overlay');
+let exitContact = document.getElementById('exitContact');
+let sectionChildren = section.querySelectorAll("*");
 contactButton.addEventListener('click', () => {
-  if (section.classList.contains('show')) {
-    section.classList.remove('show');
-    overlay.classList.add('hidden');
-  }
-  else {
-    section.classList.add('show');
-    overlay.classList.remove('hidden');
-    exitContact.classList.remove('hidden');
-    message.classList.remove('hidden');
-    email.classList.remove('hidden');
+  section.classList.add('show');
+  overlay.classList.add("show");
+  for (let child of sectionChildren) {
+    child.classList.remove("hidden");
   }
 })
 exitContact.addEventListener('click', () => {
   section.classList.remove('show');
-  overlay.classList.add('hidden');
-  exitContact.classList.add('hidden');
-  message.classList.add('hidden');
-  email.classList.add('hidden');
+  for (let child of sectionChildren) {
+    child.classList.add("hidden");
+  }
 })
-
 document.getElementById("ig-link").onclick = function () {
   window.open("https://www.instagram.com/li_henryy/", "_blank");
 };
@@ -114,6 +105,9 @@ document.getElementById("ln-link").onclick = function () {
 };
 document.getElementById("resume-link").onclick = function () {
   window.open("https://drive.google.com/file/d/1OufqySRW5S9-c7IePEcAPocFKdo6gvZ8/view?usp=sharing", "_blank");
+};
+document.getElementById("github-link").onclick = function () {
+  window.open("https://github.com/hhenryli", "_blank");
 };
 
 // garage door opening
@@ -188,11 +182,12 @@ function updateImage() {
 }
 
 //wheel animation 
-const wheelLine = document.getElementById('line');
+const pie = document.getElementById('pie');
 const crankRight = document.getElementById('crankright');
 const crankLeft = document.getElementById('crankleft');
 let pacmanContainer = document.getElementById('footer-container')
 let pacman = document.getElementById('pacman');
+let pacmanMouth = document.getElementById('pacman-mouth');
 let rotation = 0;
 let rotatingLeft = false;
 let rotatingRight = false;
@@ -203,19 +198,19 @@ function rotate() {
   let pacmanWidth = pacman.offsetWidth;
 
   let maxSlide = containerWidth - pacmanWidth;
-  console.log(maxSlide);
-  console.log(slideValue);
   if (rotatingRight && slideValue < maxSlide) {
     rotation += 5;
+    pacmanMouth.className = "pacman-mouth-right";
     pacman.style.left = slideValue + "px";
     slideValue += 7;
   }
   if (rotatingLeft && slideValue > 0) {
-    rotation -= 5; 
+    rotation -= 5;
+    pacmanMouth.className = "pacman-mouth-left";
     pacman.style.left = slideValue + "px";
     slideValue -= 7;
   }
-  wheelLine.style.transform = `rotate(${rotation}deg)`;
+  pie.style.transform = `rotate(${rotation}deg)`;
   if (rotatingRight|| rotatingLeft)
     requestAnimationFrame(rotate);
 }

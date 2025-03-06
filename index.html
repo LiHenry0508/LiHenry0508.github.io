@@ -8,10 +8,6 @@
   <body >
     <div class="splash" id="splash">
       <div class="center-splash">
-        <div class="splash-intro">
-          <h1 class="splash-text">Henry Li</h1>
-        </div>
-        <img src="images/cat_run.gif" class="cat_run">
         <div class="enter-container">
           <button class="enter-button" id="enter-button">Enter</button>
         </div>
@@ -27,7 +23,11 @@
       <img src="images/bulb.svg" class="bulb-img" id="bulb-img">
     </button>
 
+
     <div class="center-grid">
+      <div id="side-handles">
+        HENRY LI
+      </div>
       <div class="grid-container">
         <div class="stripes-container">
           <div class="stripes"></div>
@@ -35,13 +35,17 @@
 
         <div class="grid-item1"> 
           <div class="console">
-            <div class="buttons">
-              <button class="prev" id = "prevButton"></button>
-              <button class="next" id = "nextButton"></button>
-            </div>
             <div class="console-black">
               <div class="headshot-container">
                 <img class="headshot-img" id="headshot-img">
+              </div>
+            </div>
+            <div id="bottom-console-container">
+              <div id="description-container">
+              </div>
+              <div class="buttons">
+                <button id = "prevButton"></button>
+                <button id = "nextButton"></button>
               </div>
             </div>
           </div>
@@ -50,11 +54,9 @@
         <div class="grid-item2"> 
           <div class="portfolio">
             <div class="pf-info">
-                  <a class="portfolio-text" href="https://drive.google.com/drive/folders/1E99wjotqV-daIzOqHNGtifbiDJt_Gd7O?usp=sharing" target="_blank">
-                    <button class="portfolio-link">
-                      Portfolio
-                    </button>
-                  </a>
+              <a id="portfolio-text" href="https://drive.google.com/drive/folders/1E99wjotqV-daIzOqHNGtifbiDJt_Gd7O?usp=sharing" target="_blank">
+                Portfolio
+              </a>
               <div class="pf-button-div">
                 <button class="pf-button" id="pf-back">&#8592;</button>
                 <button class="pf-button" id="pf-next">&#8594;</button>
@@ -78,36 +80,52 @@
             <button class="flex-button1" id="flex-button1">CONTACT ME!</button>
             <div id="overlay" class="hidden"></div>
             <div class="slideDown" id="slideDown">
-              <div class="hidden" id="email">
-                <a href="mailto:hl3547@princeton.edu" class="email-message">hl3547@princeton.edu</a>
+              <div id="contact-me" class="hidden">
+                <h1 style="color: white;">CONTACT ME</h1>
+                <p style="color: rgb(212, 212, 212);">Need a designer or developer?</p>
               </div>
-              <div class="hidden" id="message-container">
-                <p class="message">
-                  Leave a message!
-                </p>
+              <div class="flex-button-container hidden">
+                  <button class="flex-button2 hidden" id="ig-link">
+                    <img src="images/ig.svg" class="fit-logo-image hidden">
+                  </button>
+                  <button class="flex-button2" id="ln-link">
+                    <img src="images/ln.svg" class="fit-logo-image hidden">
+                  </button>
+                  <button class="flex-button2" id="resume-link">
+                    <img src="images/resume.svg" class="fit-logo-image hidden">
+                  </button>
+                  <button class="flex-button2" id="github-link">
+                    <img src="images/githubicon.svg" class="fit-logo-image hidden">
+                  </button>
               </div>
-
+              <div class="hidden">
+                <a href="mailto:hl3547@princeton.edu" class="email-message">Email: hl3547@princeton.edu</a>
+              </div>
               <button class="hidden" id="exitContact"></button>
             </div>
           </div>
           <div class="flex-div2">
-            <div class="flex-button-div2">
-                <button class="flex-button2" id="ig-link">
-                  <img src="images/ig.svg" class="fit-logo-image">
-                </button>
-            </div>
-            <div class="flex-button-div2">
-              <button class="flex-button2" id="ln-link">
-                <img src="images/ln.svg" class="fit-logo-image">
-              </button>
-            </div>
-            <div class="flex-button-div2">
-              <button class="flex-button2" id="resume-link">
-                <img src="images/resume.svg" class="fit-logo-image">
-              </button>
+            <h1>Skills</h1>
+            <div id="skill-container">
+              <img src="images/skillpics/cicon.png" class="fit-skill-image">
+              <img src="images/skillpics/javaicon.png" class="fit-skill-image">
+              <img src="images/skillpics/pythonicon.png" class="fit-skill-image">
+              <img src="images/skillpics/reacticon.png" class="fit-skill-image">
             </div>
           </div>
         </div>
+
+
+
+        <div class="grid-item5"> 
+          <button class="crank-button" id="crankleft">&#10226</button>
+            <div class="wheel">
+              <div id="pie">
+              </div>
+            </div>
+          <button class="crank-button" id="crankright">&#10227</button>
+        </div>
+
         <div class="grid-item4" id="grid-item4">
           <h1 id="project-text">
             PROJECTS
@@ -118,18 +136,9 @@
           </div>
         </div>
 
-        <div class="grid-item5"> 
-          <button class="crank-button" id="crankleft">&#10226</button>
-            <div class="wheel">
-              <div class="line" id="line">
-                <div class="circle" id="circle"></div>
-              </div>
-            </div>
-          <button class="crank-button" id="crankright">&#10227</button>
-        </div>
         <div id="footer-container">
           <div class="pacman" id="pacman">
-            <div class="pacman-mouth"></div>
+            <div class="pacman-mouth-right" id="pacman-mouth"> </div>
           </div>
           <div class="footer"></div>
         </div>
