@@ -46,13 +46,21 @@
     transform: rotateX(50deg) rotateY(-10deg) rotateZ(30deg);
     transform-style: preserve-3d;
     font-size: 3.8em;
-    color: #837a57;
+    color: #988e65;
+    text-shadow: 
+    1px 1px 0 #504b33,
+    2px 2px 0 #504b33,
+    3px 3px 0 #504b33,
+    4px 4px 0 #504b33,
+    5px 5px 0 #504b33,
+    6px 6px 0 #504b33,
+    7px 7px 0 #504b33;
   }
-  .enter-button {
+  #enter-button {
     position: absolute;
-    padding: 3% 5% 3% 5%;
-    left: 41vw;
-    top: 44vh;
+    padding: 25px 30px 25px 30px;
+    left: 45vw;
+    top: 45vh;
     border: none;
     border-radius: 10%;
     background-color: #96a173;
@@ -60,12 +68,12 @@
     transform: rotateX(50deg) rotateY(-10deg) rotateZ(30deg);
     transform-style: preserve-3d;
     box-shadow: 
-      8px 8px 0.5px rgb(72, 100, 52),
-      inset -3px -3px rgb(72, 100, 52);
+      5px 5px 0.5px rgb(72, 100, 52),
+      inset -4px -4px rgb(72, 100, 52);
     cursor: pointer;
     transition: all 0.2s;
   }
-  .enter-button:hover {
+  #enter-button:hover {
     box-shadow: 
     0px 0px 0.5px rgb(72, 100, 52),
     inset 0px 0px rgb(72, 100, 52);
@@ -163,16 +171,14 @@
   }
 
   #side-handles {
-    left: 50%;
-    top: 4%;
-    transform: translateX(-50%);
     position: absolute;
+    margin: -60px;
     width: 250px;
     height: 55px;
     background-color: #62694b;
     border-radius: 10px;
     color: rgb(252, 255, 235);
-    font-size: 2.3vw;
+    font-size: 2em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -188,7 +194,7 @@
     background-color: #62694b;
     padding: 2% 2% 10% 2%;
     border-radius: 20px;
-    width: 77vw;
+    width: auto;
     height: 95vh;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -203,8 +209,11 @@
   }
   .stripes-container{
     grid-column: span 3;
+    display: flex;
+    justify-content: center;
   }
   .stripes {
+    width: 100%;
     height: 25px;
     border-radius: 10px;
     background: repeating-linear-gradient(
